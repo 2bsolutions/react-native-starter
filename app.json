@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "ReactNativeApp",
-    "slug": "ReactNativeApp",
-    "version": "1.0.0",
+    "name": "Two chat",
+    "slug": "two_chat_app",
+    "version": "0.0.1",
     "assetBundlePatterns": [
       "**/*"
     ]
   },
-  "name": "ReactNativeApp"
+  "name": "Two chat"
 }
