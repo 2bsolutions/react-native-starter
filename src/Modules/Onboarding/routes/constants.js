@@ -1,4 +1,4 @@
-export const ONBOARDING_SCREENS = {
+export default {
   LOGIN: 'LoginScreen',
   REGISTER: 'RegisterScreen',
   PASSWORD_RECOVERY: 'PasswordRecoveryScreen'

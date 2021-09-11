@@ -2,14 +2,19 @@ import React from 'react';
 import { Box, Text, Center, Button, FormControl, Stack, Input } from 'native-base';
 import { useForm, Controller } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
 import SocialLoginButtons from '~/Modules/Onboarding/scenes/Login/components/socialLoginButtons';
 import { attemptLogin } from '../../../../Services/auth';
 import { ONBOARDING_SCREENS } from '../../../../routes/constants';
+import { storeSession } from '../../../../../../Redux/Slices/session';
 
 // import { Container } from './styles';
 
 const LoginForm = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const session = useSelector(store => store.session);
+
   const {
     control,
     handleSubmit,
@@ -18,11 +23,23 @@ const LoginForm = () => {
 
   async function handleLogin(data) {
     try {
-      const response = await attemptLogin({
-        username: '',
-        password: ''
-      });
-    } catch (e) {}
+      // const response = await attemptLogin({
+      //   username: data.username,
+      //   password: data.password
+      // });
+      dispatch(
+        storeSession({
+          user: {
+            name: 'Jeandro Couto',
+            token: '2392032h023023',
+            email: 'jeandro.couto@gmail.com'
+          },
+          isLogged: true
+        })
+      );
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   return (
@@ -31,6 +48,9 @@ const LoginForm = () => {
         <Center>
           <Text variant="title">Bem vindo!</Text>
           <Text variant="secondary">Faça seu login abaixo</Text>
+        </Center>
+        <Center>
+          <Text>{JSON.stringify(session, null, 2)}</Text>
         </Center>
         <Box>
           <FormControl isRequired>

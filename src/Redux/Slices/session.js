@@ -11,14 +11,13 @@ export const sessionSlice = createSlice({
   name: 'session',
   initialState,
   reducers: {
-    storeSession: (state, payLoad = initialState) => {
-      state = payLoad;
+    storeSession: (state, action) => {
+      Object.keys(action.payload).forEach(key => {
+        state[key] = action.payload[key];
+      });
     },
     clearSession: state => {
       state = initialState;
-    },
-    updateSession: (state, payLoad = {}) => {
-      state = { ...state, payLoad };
     }
   }
 });

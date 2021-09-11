@@ -1,9 +1,7 @@
-import React from 'react';
-
 import LoginScene from '~/Modules/Onboarding/scenes/Login';
 import RegisterScene from '~/Modules/Onboarding/scenes/Register';
 import PasswordRecoveryScene from '~/Modules/Onboarding/scenes/PasswordRecovery';
-import { ONBOARDING_SCREENS } from './constants';
+import ONBOARDING_SCREENS from './constants';
 
 const ONBOARDING_NAVIGATION = [
   {
